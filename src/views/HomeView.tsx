@@ -219,7 +219,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
             <div className="space-y-4">
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/80 bg-slate-900 shadow-sm group/img">
                 <img
-                  src="/assets/aistudio/sander-hallaste--WsWcSHw8bU-unsplash_cc28e23e.jpg"
+                  src="assets/aistudio/sander-hallaste--WsWcSHw8bU-unsplash_cc28e23e.jpg"
                   alt="Âm nhạc đương đại & Điện tử giao thoa"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
                   loading="lazy"
@@ -247,7 +247,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
             <div className="space-y-4">
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/80 bg-slate-900 shadow-sm group/img">
                 <img
-                  src="/assets/aistudio/48355b194660391.6600368ea6206_15a5d45f.webp"
+                  src="assets/aistudio/48355b194660391.6600368ea6206_15a5d45f.webp"
                   alt="Khán phòng xoay & Sân khấu 360° tương tác đa chiều"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
                   loading="lazy"
@@ -275,7 +275,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
             <div className="space-y-4">
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/80 bg-slate-900 shadow-sm group/img">
                 <img
-                  src="/assets/aistudio/307169893_6137599389-01_98795c11.jpg"
+                  src="assets/aistudio/307169893_6137599389-01_98795c11.jpg"
                   alt="Đồng sáng tạo từ nghệ sĩ & thợ thủ công bản địa"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
                   loading="lazy"
