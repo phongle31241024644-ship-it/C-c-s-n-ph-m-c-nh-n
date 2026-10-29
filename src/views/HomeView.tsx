@@ -71,7 +71,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
 
               {/* Poster Image */}
               <img
-                src="/assets/aistudio/Untitled-2-Recovered_577ab8c9_577ab8c9.png"
+                src="assets/aistudio/Untitled-2-Recovered_577ab8c9_577ab8c9.png"
                 alt="BOATS THE MUSICAL - Official Poster 2027"
                 className="w-full h-auto object-cover rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
               />
