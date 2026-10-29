@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base : '/boatsthemusical/',
+    base : '/C-c-s-n-ph-m-c-nh-n/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
