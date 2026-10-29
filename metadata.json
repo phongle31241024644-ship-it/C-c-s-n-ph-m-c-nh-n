@@ -1,0 +1,6 @@
+{
+  "name": "BOATS The Musical - Vở Nhạc Kịch Đa Giác Quan 360°",
+  "description": "Trang chủ, hệ thống đặt vé trực tuyến tương tác 360° và cửa hàng lưu niệm độc quyền chính thức của BOATS The Musical tại Rạp Xiếc & Biểu Diễn Đa Năng Phú Thọ TP.HCM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,215 @@
+---
+name: Ultramarine Stage
+colors:
+  surface: '#fbf8ff'
+  surface-dim: '#dbd9e2'
+  surface-bright: '#fbf8ff'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f5f2fc'
+  surface-container: '#efecf6'
+  surface-container-high: '#e9e7f0'
+  surface-container-highest: '#e3e1eb'
+  on-surface: '#1b1b22'
+  on-surface-variant: '#454653'
+  inverse-surface: '#303037'
+  inverse-on-surface: '#f2eff9'
+  outline: '#767684'
+  outline-variant: '#c6c5d5'
+  surface-tint: '#4654bc'
+  primary: '#000f7b'
+  on-primary: '#ffffff'
+  primary-container: '#1d2b96'
+  on-primary-container: '#909cff'
+  inverse-primary: '#bcc2ff'
+  secondary: '#7d5700'
+  on-secondary: '#ffffff'
+  secondary-container: '#fdc662'
+  on-secondary-container: '#755100'
+  tertiary: '#002930'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#00404a'
+  on-tertiary-container: '#63aebf'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#dfe0ff'
+  primary-fixed-dim: '#bcc2ff'
+  on-primary-fixed: '#000a63'
+  on-primary-fixed-variant: '#2d3aa3'
+  secondary-fixed: '#ffdeaa'
+  secondary-fixed-dim: '#f4be5b'
+  on-secondary-fixed: '#271900'
+  on-secondary-fixed-variant: '#5f4100'
+  tertiary-fixed: '#a6eeff'
+  tertiary-fixed-dim: '#87d2e3'
+  on-tertiary-fixed: '#001f25'
+  on-tertiary-fixed-variant: '#004e5b'
+  background: '#fbf8ff'
+  on-background: '#1b1b22'
+  surface-variant: '#e3e1eb'
+typography:
+  headline-xl:
+    fontFamily: Bodoni Moda
+    fontSize: 56px
+    fontWeight: '700'
+    lineHeight: 64px
+    letterSpacing: -0.02em
+  headline-xl-mobile:
+    fontFamily: Bodoni Moda
+    fontSize: 36px
+    fontWeight: '700'
+    lineHeight: 44px
+    letterSpacing: -0.01em
+  headline-lg:
+    fontFamily: Bodoni Moda
+    fontSize: 40px
+    fontWeight: '600'
+    lineHeight: 48px
+    letterSpacing: -0.01em
+  headline-lg-mobile:
+    fontFamily: Bodoni Moda
+    fontSize: 28px
+    fontWeight: '600'
+    lineHeight: 36px
+    letterSpacing: '0'
+  headline-md:
+    fontFamily: Bodoni Moda
+    fontSize: 28px
+    fontWeight: '600'
+    lineHeight: 36px
+  title-lg:
+    fontFamily: Hanken Grotesk
+    fontSize: 22px
+    fontWeight: '600'
+    lineHeight: 30px
+    letterSpacing: -0.01em
+  title-md:
+    fontFamily: Hanken Grotesk
+    fontSize: 18px
+    fontWeight: '600'
+    lineHeight: 26px
+  body-lg:
+    fontFamily: Hanken Grotesk
+    fontSize: 16px
+    fontWeight: '400'
+    lineHeight: 26px
+  body-md:
+    fontFamily: Hanken Grotesk
+    fontSize: 14px
+    fontWeight: '400'
+    lineHeight: 22px
+  label-lg:
+    fontFamily: Space Grotesk
+    fontSize: 14px
+    fontWeight: '600'
+    lineHeight: 18px
+    letterSpacing: 0.06em
+  label-sm:
+    fontFamily: Space Grotesk
+    fontSize: 11px
+    fontWeight: '500'
+    lineHeight: 14px
+    letterSpacing: 0.08em
+rounded:
+  sm: 0.125rem
+  DEFAULT: 0.25rem
+  md: 0.375rem
+  lg: 0.5rem
+  xl: 0.75rem
+  full: 9999px
+spacing:
+  gutter: 1.5rem
+  gutter-mobile: 0.75rem
+  margin: 3rem
+  margin-mobile: 1.25rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.75rem
+  space-xl: 3rem
+---
+
+## Brand & Style
+
+This design system translates the bold, theatrical energy of "BOATS THE MUSICAL" into an ethereal, high-culture digital storefront. The aesthetic blends **avant-garde editorial minimalism** with **sculptural nautical modernism**—drawing immediate inspiration from printmaking, linocut woodblocks, and monumental maritime silhouettes found in stage scenography.
+
+### Brand Personality & Emotional Resonance
+- **Luminous & Dramatic:** High-key, pristine white spaces punctuated by sheer blocks of electric ultramarine evoke the dramatic clash of stage lighting on open water.
+- **Poetic & Avant-Garde:** Cultured, literary, and evocative, avoiding predictable tourist-theater tropes in favor of gallery-grade editorial poise.
+- **Effortless Precision:** Premium ticketing flows, real-time seat selection, and curated theatrical merchandise presented with razor-sharp typography and intuitive spatial cues.
+
+### Visual Style
+The system pairs architectural graphic borders and maritime curves with airy whitespace. Contrast is crisp and purposeful: clean vector lines, subtle paper-grain textures, and precise geometric contours frame the stage experience.
+
+## Colors
+
+The palette is anchored by the vivid, deep saturation of theatrical cobalt/ultramarine balanced against breathable, bright canvas tints.
+
+### Palette Roles
+- **Primary (`#1D2B96` - Ultramarine Stage):** The dominant theatrical voice. Used for key action triggers, master navigation bars, high-impact titles, selected seat indicators, and dynamic linework.
+- **Secondary (`#C99738` - Maritime Amber/VIP):** Reserved for VIP tier privileges, premier seat selection, exclusive limited merchandise badges, and gilded theatrical highlights.
+- **Tertiary (`#2A7C8C` - Ocean Mist Teal):** Applied to standard ticket categories, informational notices, live stage status indicators, and secondary navigation elements.
+- **Neutral Light Canvas (`#FFFFFF` to `#F4F6FC`):** A high-luminosity backdrop that gives typography and merchandise imagery breathing room.
+- **Neutral Dark (`#0E143B` - Deep Abyssal Blue):** Utilized for primary text rendering, stage backdrop headers, and extreme-contrast borders, maintaining an ink-like richness rather than dull gray.
+
+## Typography
+
+Typography establishes an intentional dialogue between the classical gravitas of European stage theater and the crisp, modern discipline of technical interfaces.
+
+- **Headlines (Bodoni Moda):** High-contrast, editorial serif with dramatic vertical stress. Ideal for hero production billings, act announcements, and musical numbers. Titles feature generous leading to let character serifs stand out unhindered.
+- **Body & Captions (Hanken Grotesk):** A sharp, contemporary neo-grotesque ensuring complete legibility across ticket manifests, cast bios, and merchandise specifications.
+- **Labels, Dates & Seating Identifiers (Space Grotesk):** Technical geometric mono-influence providing structure for performance times, seat coordinates (e.g., `ORCH-A14`), barcode numbers, and monetary values. Always rendered with slight positive tracking in uppercase for immediate scannability.
+
+## Layout & Spacing
+
+The layout follows a disciplined 12-column responsive grid on desktop and 4 columns on mobile, framed like a classic theatrical stage bill.
+
+### Structural Framework
+- **Stage Proscenium Margins:** Outer page margins are intentionally wider (`margin: 3rem`) on desktop to simulate a framed stage opening.
+- **Rhythmic Vertical Cadence:** Vertical spacing follows strict intervals of `space-md` (16px) and `space-xl` (48px) to distinguish production acts, ticketing steps, and product bundles.
+- **Interactive Seating Canvas:** The theater seating chart utilizes an independent contextual panning frame with sticky bottom drawers for checkout summaries on mobile.
+
+## Elevation & Depth
+
+Visual hierarchy rejects muddy drop shadows, drawing instead on pure tonal layering, structural borders, and delicate cobalt ambient glow.
+
+- **Level 0 (Stage Floor):** Crisp, pure white (`#FFFFFF`) or subtle mist tint (`#F8F9FD`).
+- **Level 1 (Card & Module Surfaces):** Elevated through crisp 1px borders in `rgba(29, 43, 150, 0.12)` accompanied by an ethereal, diffuse tint: `0 8px 32px -4px rgba(29, 43, 150, 0.06)`.
+- **Level 2 (Modals & Sticky Cart Trays):** High-clarity frosted glass backdrop (`backdrop-filter: blur(16px)`) with pure white opacity (`rgba(255, 255, 255, 0.88)`), framed by a precise 1.5px cobalt keyline.
+- **Level 3 (Selected Seat / Focus States):** Vibrant cobalt highlight with concentrated ambient projection: `0 0 16px rgba(29, 43, 150, 0.35)`.
+
+## Shapes
+
+The shape system adopts a refined, tailored radius level (0.25rem base) balancing crisp print edges with architectural grace.
+
+- **Containers & Stage Cards:** Subtle 4px radius (`rounded`) preserving the geometry of playbills and physical theater tickets.
+- **Notched Maritime Motifs:** Featured cards and ticket stubs can incorporate inward 8px corner cutouts or subtle bottom arch cutaways evocative of ship bow hulls.
+- **Pills for Functional Tags Only:** Status indicators (e.g., `SELLING FAST`, `VIP ACCESS`) utilize full pill radii to stand out from rectangular content boxes.
+
+## Components
+
+### Buttons
+- **Primary CTA ("Select Seats", "Book Now"):** Solid Ultramarine background (`#1D2B96`), crisp white typography in `label-lg`, 4px radius, padded with `1rem 2rem`. On hover, subtle elevation with a golden accent bottom edge (`#C99738`).
+- **Secondary ("Explore Cast", "View Merch"):** Pure white surface, 1.5px solid border in `#1D2B96`, text colored in `#1D2B96`.
+- **Tertiary / Ghost:** Text-only in `label-lg` with an animated wave underline on hover.
+
+### Theater Seating Map
+- **Seat Nodes:** 18px rounded squares with 3px radii.
+  - *Available VIP:* `#F5EEDB` fill with `#C99738` border.
+  - *Available Standard:* `#EBF3F5` fill with `#2A7C8C` border.
+  - *Selected:* Solid `#1D2B96` with white center check mark and outer cobalt glow.
+  - *Occupied:* Pale neutral gray (`#E5E7EB`) with faint diagonal slash, disabled interactions.
+- **Stage Indicator:** Monolithic curved bar at the top with "STAGE / SÂN KHẤU" in tracked `label-sm` Space Grotesk.
+
+### Ticket Category Cards & Stubs
+- Styled like high-end collector stubs. Incorporates a dotted perforating divider line separating performance details from the QR code/barcode zone.
+- Tier indicators feature metallic accents: VIP Gold (`#C99738`), Premium Purple (`#4E3399`), and Standard Mist (`#2A7C8C`).
+
+### Form Inputs & Selectors
+- Date and quantity selectors feature an underline or subtle 1px border (`#D0D5EE`), shifting on focus to deep cobalt (`#1D2B96`) with zero layout shift.
+- Floating label styled in `label-sm` Space Grotesk.
+
+### Merchandise Grid Cards
+- Pure clean framing with generous internal padding. Product photography sits atop an ocean mist container (`#F4F6FC`).
+- Quick-add actions reveal smoothly from the bottom with a sliding transition on hover.
