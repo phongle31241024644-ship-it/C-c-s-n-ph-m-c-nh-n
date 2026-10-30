@@ -39,6 +39,7 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
   const [activeZone, setActiveZone] = useState<'all' | 'VIP' | 'Premium' | 'Standard'>('VIP');
   const [couponInput, setCouponInput] = useState(couponCode);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+  const [isMapModalOpen, setIsMapModalOpen] = useState(false);
 
   const isNameValid = customerInfo.name.trim().length >= 2;
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerInfo.email.trim());
@@ -359,11 +360,105 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
                 </div>
               </div>
 
-              {/* 3. Interactive Seat Matrix & Minimap */}
-              <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
-                {/* Seat Matrix Area (8 cols) */}
+              {/* 3. BẢN ĐỒ VỊ TRÍ TOÀN CẢNH KHÁN PHÒNG (MINIMAP 360° - PHÓNG TO) */}
+              <div className="mt-5 space-y-6">
                 <div
-                  className="lg:col-span-8 relative flex flex-col p-4 sm:p-5 rounded-2xl border border-white/90 shadow-inner overflow-hidden"
+                  className="w-full flex flex-col p-4 sm:p-6 rounded-3xl bg-white/80 border border-white/90 shadow-sm"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.75)',
+                    backdropFilter: 'blur(24px) saturate(180%)',
+                    border: '1px solid rgba(255, 255, 255, 0.9)',
+                    boxShadow: '0 15px 35px -10px rgba(29, 43, 150, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.6) inset',
+                  }}
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-3 border-b border-[#c6c5d5]/40 gap-2">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-9 h-9 rounded-xl bg-[#dfe0ff] flex items-center justify-center text-[#000f7b] shrink-0">
+                        <span className="material-symbols-outlined text-xl">map</span>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1b1b22]">
+                            Bản Đồ Vị Trí Khán Phòng 360° (Minimap)
+                          </span>
+                          <span className="text-[10px] font-bold text-[#000f7b] bg-[#1d2b96]/10 px-2 py-0.5 rounded-full">
+                            Rạp Xiếc Phú Thọ
+                          </span>
+                        </div>
+                        <p className="text-xs text-[#454653] mt-0.5">
+                          Đang phóng to góc nhìn:{' '}
+                          <strong className="text-[#c0266f]">
+                            {activeZone === 'VIP'
+                              ? 'Khu Vực VIP Trung Tâm'
+                              : activeZone === 'Premium'
+                              ? 'Khu Vực Premium Trung Gian'
+                              : activeZone === 'Standard'
+                              ? 'Khu Vực Standard Toàn Cảnh'
+                              : 'Toàn Thể Khán Đài 360°'}
+                          </strong>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setIsMapModalOpen(true)}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-[#c6c5d5]/80 hover:border-[#1d2b96] text-[#1d2b96] text-xs font-bold shadow-xs hover:bg-blue-50/60 transition-all cursor-pointer"
+                      >
+                        <span className="material-symbols-outlined text-base">zoom_out_map</span>
+                        <span>Phóng to toàn màn hình</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Large Map Showcase */}
+                  <div
+                    onClick={() => setIsMapModalOpen(true)}
+                    className="relative w-full rounded-2xl overflow-hidden border border-[#c6c5d5]/50 bg-gradient-to-b from-white/95 to-slate-50/95 shadow-inner p-3 sm:p-5 flex items-center justify-center cursor-zoom-in group"
+                    style={{ minHeight: '380px' }}
+                    title="Nhấp để xem bản đồ phóng to cực đại"
+                  >
+                    <img
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP30L_GtJBvFDFLi5B3xx4sjGqVK4TpAjqZlJbHpJ8Dk-pjxSqngfz6r84xQIeZyun93qG0f5peQ2QgRxkapjGlHTJaMwSbZFybm0wzpDeW4HRCl824QhYUhw2PZJn7DnFZ4rCzwwcfUymJMr5IABNVOEQ9apK7_DF4Cm0ggiZjikg-nG-KhQ1h-3dsX1NkkVCtr3lWpJeVoTLSE3CyZaexq41H9pcKBJKPgpfTC1s-bZxSMrwVVb8"
+                      alt="Sơ Đồ Toàn Cảnh Rạp Xiếc Khán Phòng 360°"
+                      className="w-full max-w-2xl h-auto max-h-[460px] object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+
+                    {/* Active viewfinder indicator matching zone */}
+                    <div
+                      className={`absolute border-2 rounded-xl pointer-events-none flex items-center justify-center shadow-lg transition-all duration-300 ${
+                        activeZone === 'VIP'
+                          ? 'w-[42%] h-[32%] bottom-[12%] border-[#c0266f] bg-[#c0266f]/15'
+                          : activeZone === 'Premium'
+                          ? 'w-[64%] h-[48%] bottom-[16%] border-[#8b5cf6] bg-[#8b5cf6]/15'
+                          : activeZone === 'Standard'
+                          ? 'w-[86%] h-[68%] bottom-[20%] border-[#14b8a6] bg-[#14b8a6]/15'
+                          : 'w-[92%] h-[80%] bottom-[10%] border-[#000f7b] bg-[#000f7b]/10'
+                      }`}
+                    >
+                      <span className="px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase shadow-md flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        {activeZone === 'VIP'
+                          ? 'Vị trí VIP đang chọn'
+                          : activeZone === 'Premium'
+                          ? 'Vị trí Premium đang chọn'
+                          : activeZone === 'Standard'
+                          ? 'Vị trí Standard đang chọn'
+                          : 'Toàn cảnh khán đài 360°'}
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-3 right-3 z-10 opacity-75 group-hover:opacity-100 transition-opacity bg-black/70 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-semibold flex items-center gap-1 pointer-events-none">
+                      <span className="material-symbols-outlined text-xs">zoom_in</span>
+                      Nhấp để xem bản đồ phóng to cực đại
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Sơ Đồ Chọn Ghế Tương Tác (Seat Matrix) */}
+                <div
+                  className="w-full relative flex flex-col p-4 sm:p-6 rounded-3xl border border-white/90 shadow-inner overflow-hidden"
                   style={{
                     background:
                       'linear-gradient(rgba(255, 255, 255, 0.85) 0%, rgba(240, 246, 255, 0.5) 50%, rgba(235, 240, 255, 0.65) 100%)',
@@ -377,11 +472,8 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
                   {/* Stage Dome simulation */}
                   <div className="relative z-10 w-full mb-4 flex flex-col items-center justify-center">
                     <div className="w-3/4 max-w-xs py-2 px-4 rounded-b-3xl bg-gradient-to-r from-[#000f7b] to-[#1d2b96] text-white text-center shadow-md border-b border-[#1d2b96]/30">
-                      <span className="text-[10px] tracking-widest uppercase font-bold text-amber-200 block leading-none">
+                      <span className="text-xs tracking-wider uppercase font-extrabold text-amber-200 block py-0.5">
                         SÂN KHẤU TRUNG TÂM VÒM 360°
-                      </span>
-                      <span className="text-xs font-black tracking-wider uppercase">
-                        STAGE - BIỂN SÓNG HOLOGRAPHIC
                       </span>
                     </div>
                     <div className="w-full flex items-center justify-between text-[10px] text-[#454653] font-medium px-4 mt-1.5">
@@ -590,96 +682,6 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
                         );
                       })}
                     </div>
-                  </div>
-                </div>
-
-                {/* Minimap Overview (4 cols) */}
-                <div
-                  className="lg:col-span-4 flex flex-col justify-between p-4 rounded-2xl bg-white/80 border border-white/90 shadow-sm"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.72)',
-                    backdropFilter: 'blur(24px) saturate(180%)',
-                    border: '1px solid rgba(255, 255, 255, 0.9)',
-                    boxShadow: '0 15px 35px -10px rgba(29, 43, 150, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.6) inset',
-                  }}
-                >
-                  <div>
-                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#c6c5d5]/40">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#1b1b22] flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-sm text-[#000f7b]">map</span>
-                        Bản Đồ Vị Trí (Minimap)
-                      </span>
-                      <span className="text-[10px] font-bold text-[#000f7b] bg-[#1d2b96]/10 px-2 py-0.5 rounded-full">
-                        360° Sân khấu
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-[#454653] mb-2">
-                      Đang phóng to góc nhìn:{' '}
-                      <strong className="text-[#c0266f]">
-                        {activeZone === 'VIP'
-                          ? 'Khu Vực VIP Trung Tâm'
-                          : activeZone === 'Premium'
-                          ? 'Khu Vực Premium Trung Gian'
-                          : activeZone === 'Standard'
-                          ? 'Khu Vực Standard Toàn Cảnh'
-                          : 'Toàn Thể Khán Đài 360°'}
-                      </strong>
-                    </p>
-
-                    <div className="relative w-full rounded-xl overflow-hidden border border-[#c6c5d5]/50 shadow-inner group">
-                      <img
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP30L_GtJBvFDFLi5B3xx4sjGqVK4TpAjqZlJbHpJ8Dk-pjxSqngfz6r84xQIeZyun93qG0f5peQ2QgRxkapjGlHTJaMwSbZFybm0wzpDeW4HRCl824QhYUhw2PZJn7DnFZ4rCzwwcfUymJMr5IABNVOEQ9apK7_DF4Cm0ggiZjikg-nG-KhQ1h-3dsX1NkkVCtr3lWpJeVoTLSE3CyZaexq41H9pcKBJKPgpfTC1s-bZxSMrwVVb8"
-                        alt="Sơ Đồ Toàn Cảnh Rạp Xiếc Khán Phòng 360°"
-                        className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                      />
-                      {/* Active viewfinder indicator */}
-                      <div className="absolute inset-x-8 bottom-3 top-1/2 border-2 border-[#c0266f] rounded-lg bg-[#c0266f]/15 pointer-events-none flex items-center justify-center shadow-sm">
-                        <span className="px-1.5 py-0.5 rounded bg-[#c0266f] text-white text-[8px] font-black uppercase tracking-wider shadow-xs">
-                          Vị trí đang chọn
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Selected Seats in session info */}
-                  <div className="mt-3 pt-3 border-t border-[#c6c5d5]/40 space-y-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#1b1b22] block">
-                      Ghế đang chọn trong phiên:
-                    </span>
-                    <div className="space-y-1.5">
-                      {selectedSeats.length === 0 ? (
-                        <p className="text-xs text-[#767684] italic text-center py-2">
-                          Chưa có ghế nào được chọn. Hãy nhấp vào ghế trên sơ đồ.
-                        </p>
-                      ) : (
-                        selectedSeats.map((seat) => (
-                          <div
-                            key={seat.id}
-                            className="p-2 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between"
-                          >
-                            <div className="flex items-center gap-2">
-                              <span className="w-6 h-6 rounded-lg bg-emerald-500 text-white font-black text-[11px] flex items-center justify-center shadow-xs">
-                                {seat.id}
-                              </span>
-                              <div>
-                                <p className="text-xs font-bold text-[#1b1b22]">
-                                  Ghế {seat.tier} {seat.number} • Hàng {seat.row}
-                                </p>
-                                <p className="text-[10px] text-emerald-700 font-semibold">
-                                  {seat.priceFormatted} • {seat.tier === 'VIP' ? 'Trung tâm' : seat.tier}
-                                </p>
-                              </div>
-                            </div>
-                            <span className="material-symbols-outlined text-emerald-600 text-base">
-                              check_circle
-                            </span>
-                          </div>
-                        ))
-                      )}
-                    </div>
-                    <p className="text-[10px] text-[#454653] text-center pt-1">
-                      Ghế đã được tự động đồng bộ vào Giỏ vé thanh toán.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -1024,6 +1026,72 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Fullscreen Lightbox Modal for Map */}
+      {isMapModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-all animate-fadeIn"
+          onClick={() => setIsMapModalOpen(false)}
+        >
+          <div
+            className="relative max-w-5xl w-full max-h-[92vh] bg-white rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col overflow-hidden border border-white/40"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#c6c5d5]/40">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-[#dfe0ff] flex items-center justify-center text-[#000f7b]">
+                  <span className="material-symbols-outlined text-lg">map</span>
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base font-bold text-[#1b1b22]">
+                    Bản Đồ Chi Tiết Khán Phòng 360° — Rạp Xiếc Phú Thọ
+                  </h3>
+                  <p className="text-[11px] text-[#454653]">
+                    Phóng to toàn cảnh: Khu VIP (Hồng) • Premium (Tím) • Standard (Xanh lục)
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMapModalOpen(false)}
+                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-[#454653] transition-colors cursor-pointer"
+                title="Đóng bản đồ"
+              >
+                <span className="material-symbols-outlined text-lg">close</span>
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-auto p-4 flex items-center justify-center bg-slate-50/80 rounded-2xl my-3">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP30L_GtJBvFDFLi5B3xx4sjGqVK4TpAjqZlJbHpJ8Dk-pjxSqngfz6r84xQIeZyun93qG0f5peQ2QgRxkapjGlHTJaMwSbZFybm0wzpDeW4HRCl824QhYUhw2PZJn7DnFZ4rCzwwcfUymJMr5IABNVOEQ9apK7_DF4Cm0ggiZjikg-nG-KhQ1h-3dsX1NkkVCtr3lWpJeVoTLSE3CyZaexq41H9pcKBJKPgpfTC1s-bZxSMrwVVb8"
+                alt="Bản đồ phóng to toàn cảnh cực đại"
+                className="w-full h-auto max-h-[72vh] object-contain select-none"
+              />
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 text-xs text-[#454653]">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#c0266f]" /> VIP (1.299.000đ)
+                </span>
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#8b5cf6]" /> Premium (799.000đ)
+                </span>
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#14b8a6]" /> Standard (499.000đ)
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMapModalOpen(false)}
+                className="px-5 py-2 rounded-xl bg-[#1d2b96] text-white font-bold text-xs cursor-pointer hover:bg-[#000f7b] shadow-sm transition-all self-end sm:self-auto"
+              >
+                Đóng bản đồ
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -42,7 +42,7 @@ export const BookingStep3View: React.FC<BookingStep3ViewProps> = ({
   const [shippingNote, setShippingNote] = useState(customerInfo.note || '');
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
 
-  const displayDateStr = selectedDate ? selectedDate.dateStr : 'Thứ Năm, 23/10/2027';
+  const displayDateStr = selectedDate ? selectedDate.dateStr : 'Thứ Sáu, 22/10/2027';
   const displayTimeRange = selectedTime ? selectedTime.timeRange : '19:30 - 21:30';
 
   useEffect(() => {

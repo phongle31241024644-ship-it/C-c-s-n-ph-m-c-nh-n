@@ -113,7 +113,7 @@ export default function App() {
       const targetSeat = updated.find((s) => s.id === seatId);
       if (targetSeat) {
         if (targetSeat.status === 'selected') {
-          const dateStr = selectedDate?.dateStr || 'Thứ Năm, 23/10/2027';
+          const dateStr = selectedDate?.dateStr || 'Thứ Sáu, 22/10/2027';
           const timeRange = selectedTime?.timeRange || '19:30 - 21:30';
           setCartItems((prevItems) => {
             if (prevItems.some((i) => i.seatId === seatId)) return prevItems;
@@ -166,7 +166,7 @@ export default function App() {
         return seat;
       });
 
-      const dateStr = selectedDate?.dateStr || 'Thứ Năm, 23/10/2027';
+      const dateStr = selectedDate?.dateStr || 'Thứ Sáu, 22/10/2027';
       const timeRange = selectedTime?.timeRange || '19:30 - 21:30';
 
       // Update cart items
@@ -238,9 +238,9 @@ export default function App() {
           id: comboId,
           type: 'merch',
           title: 'Gói Sưu Tầm Trọn Vẹn "Hải Trình BOATS"',
-          subtitle: 'Combo Quà Tặng Khán Giả Cao Cấp',
-          price: 1190000,
-          priceFormatted: '1.190.000 VNĐ',
+          subtitle: 'Combo 4 Món: Áo T-shirt + Túi Tote + Vòng Tay Hạt + Postcard Set',
+          price: 490000,
+          priceFormatted: '490.000 VNĐ',
           quantity: 1,
           image:
             'https://lh3.googleusercontent.com/aida-public/AB6AXuDpK4FWTcVBluvKbUSKo5XivYTQsZTJfQO6Jh8EybTi4UX3z5qDBqtq5d5Old41phQk0TmOZVzDCIahki0gmkR5HhF-kIR_zxyexRWPi2yry11zBcibiYPyagrVkXTDZboge-D7bk2DuYtcunVParhx9Sb9hAg1tO3Bg9qGQrsJaZNApTmy3IbJNnhjmOkWjFnTiRrsPk-HTr-hpbjuyti0wvE4LM4m0lw435P7X6pUHRUVPN-dvihiA0x7uJTcR-lITw',

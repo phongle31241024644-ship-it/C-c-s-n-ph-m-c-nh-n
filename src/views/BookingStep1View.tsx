@@ -19,15 +19,18 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
   onProceedToStep2,
   onAutoProceedToStep2,
 }) => {
-  // Chỉ Thứ 4 (d1) và Thứ 5 (d2) mới có cả suất sáng và suất tối
-  const isMultiSessionDate = (d: ShowDate | null) => d?.id === 'd1' || d?.id === 'd2';
+  // Thứ 4 (d1) và Thứ 5 (d2) có 1 suất buổi tối; Thứ 6 (d3), Thứ 7 (d4), Chủ Nhật (d5) có suất sáng & chiều
+  const isEveningOnlyDate = (d: ShowDate | null) => d?.id === 'd1' || d?.id === 'd2';
+  const isWeekendMultiSession = (d: ShowDate | null) => d?.id === 'd3' || d?.id === 'd4' || d?.id === 'd5';
   const isReady = selectedDate !== null && selectedTime !== null;
 
+  const eveningTime = SHOW_TIMES.find((t) => t.tagType === 'evening') || SHOW_TIMES[2];
+  const weekendTimes = SHOW_TIMES.filter((t) => t.tagType === 'morning' || t.tagType === 'afternoon');
+
   const handleDateClick = (d: ShowDate) => {
-    if (!isMultiSessionDate(d)) {
-      // Thứ 6, Thứ 7, Chủ Nhật: Chỉ có 1 suất tối (19:30 - 21:30)
-      // Tự động chọn sẵn suất tối và chuyển thẳng qua Bước 2 (Chọn ghế) luôn mà không cần chọn lại buổi!
-      const eveningTime = SHOW_TIMES[1];
+    if (isEveningOnlyDate(d)) {
+      // Thứ 4, Thứ 5: Chỉ có 1 suất tối (19:30 - 21:30)
+      // Tự động chọn sẵn suất tối và chuyển thẳng qua Bước 2 (Chọn ghế) luôn
       if (onAutoProceedToStep2) {
         onAutoProceedToStep2(d, eveningTime);
       } else {
@@ -36,7 +39,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
         onProceedToStep2();
       }
     } else {
-      // Thứ 4, Thứ 5: Có cả 2 buổi (sáng & tối) -> để người dùng tự chọn buổi
+      // Thứ 6, Thứ 7, Chủ Nhật: Có 2 suất (Sáng & Chiều) -> để người dùng tự chọn
       onSelectDate(d);
       onSelectTime(null);
     }
@@ -137,13 +140,10 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
               >
                 Lịch Diễn Tuần Này
               </h2>
-              <p className="text-xs sm:text-sm text-[#454653] mt-1.5 leading-relaxed">
-                <strong className="text-[#000f7b]">Quy định suất diễn:</strong> Thứ Tư &amp; Thứ Năm có 2 suất (Sáng: 09:00 - 11:00 &amp; Tối: 19:30 - 21:30). Riêng <strong className="text-emerald-700">Thứ Sáu, Thứ Bảy &amp; Chủ Nhật</strong> chỉ có duy nhất suất Tối — khi bấm chọn sẽ <strong className="text-[#1d2b96]">tự động chọn sẵn suất tối và chuyển thẳng sang Bước 2 (Chọn ghế)</strong>.
-              </p>
             </div>
             <div className="inline-flex items-center gap-2 text-xs text-[#454653] bg-[#f5f2fc] px-3.5 py-2 rounded-full border border-white shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Sẵn sàng mở bán suất diễn tháng 9 - 11/2027
+              Sẵn sàng mở bán suất diễn tháng 10/2027
             </div>
           </div>
 
@@ -162,14 +162,14 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5" id="date-picker-group">
               {SHOW_DATES.map((d) => {
                 const isSelected = selectedDate?.id === d.id;
-                const isDirectStep2 = !isMultiSessionDate(d);
+                const isDirectStep2 = isEveningOnlyDate(d);
 
                 return (
                   <button
                     key={d.id}
                     onClick={() => handleDateClick(d)}
                     type="button"
-                    title={isDirectStep2 ? `${d.dayOfWeek} (${d.dayMonth}) - Tự động chọn suất tối & chuyển ngay qua Bước 2` : `${d.dayOfWeek} (${d.dayMonth}) - Chọn để xem các suất`}
+                    title={isDirectStep2 ? `${d.dayOfWeek} (${d.dayMonth}) - Tự động chọn suất tối & chuyển ngay qua Bước 2` : `${d.dayOfWeek} (${d.dayMonth}) - Chọn để xem các suất (Sáng / Chiều)`}
                     className={`group relative flex flex-col items-center justify-center p-4 rounded-2xl transition-all text-center cursor-pointer active:scale-95 ${
                       isSelected
                         ? 'border-2 border-[#1d2b96] bg-[#1d2b96]/10 shadow-md ring-2 ring-[#1d2b96]/30'
@@ -182,8 +182,8 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                       </span>
                     )}
                     {isDirectStep2 && !isSelected && (
-                      <span className="absolute -top-2 right-2 px-1.5 py-0.2 text-[8px] font-bold uppercase rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
-                        Chuyển nhanh
+                      <span className="absolute -top-2 right-2 px-1.5 py-0.2 text-[8px] font-bold uppercase rounded-full bg-indigo-100 text-indigo-800 border border-indigo-300">
+                        Suất Tối
                       </span>
                     )}
                     <span
@@ -226,14 +226,14 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
               {selectedDate && (
                 <span
                   className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${
-                    isMultiSessionDate(selectedDate)
+                    isWeekendMultiSession(selectedDate)
                       ? 'text-amber-800 bg-amber-50 border-amber-200'
                       : 'text-indigo-800 bg-indigo-50 border-indigo-200'
                   }`}
                 >
-                  {isMultiSessionDate(selectedDate)
-                    ? 'Thứ 4, 5: Có 2 Suất (Sáng & Tối)'
-                    : 'Thứ 6, 7, CN: Cố định 1 Suất Tối'}
+                  {isWeekendMultiSession(selectedDate)
+                    ? `${selectedDate.dayOfWeek}: Có 2 Suất (Sáng & Chiều)`
+                    : `${selectedDate.dayOfWeek}: 1 Suất Tối`}
                 </span>
               )}
             </div>
@@ -245,17 +245,17 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                   Hãy bấm chọn 1 ngày diễn ở trên để hiển thị các khung giờ có sẵn
                 </p>
                 <p className="text-xs text-[#767684]">
-                  Mẹo: Chọn Thứ 6, 7 hoặc Chủ Nhật sẽ tự động chọn suất tối và chuyển thẳng tới sơ đồ ghế 360°!
+                  Thứ 4, 5: 1 suất tối (19:30 – 21:30) • Thứ 6, 7, CN: Có 2 suất Sáng (09:30) &amp; Chiều (14:30)
                 </p>
               </div>
-            ) : isMultiSessionDate(selectedDate) ? (
-              /* THỨ 4, THỨ 5: CÓ 2 BUỔI (SÁNG & TỐI) -> NGƯỜI DÙNG TỰ CHỌN */
+            ) : isWeekendMultiSession(selectedDate) ? (
+              /* THỨ 6, THỨ 7, CHỦ NHẬT: CÓ 2 BUỔI (SÁNG & CHIỀU) -> NGƯỜI DÙNG TỰ CHỌN */
               <div className="space-y-2">
                 <p className="text-xs text-[#454653]">
-                  {selectedDate.dayOfWeek} có 2 buổi diễn. Vui lòng bấm chọn buổi bạn mong muốn:
+                  <strong className="text-[#000f7b]">{selectedDate.dayOfWeek} ({selectedDate.dayMonth})</strong> có 2 suất diễn (Sáng &amp; Chiều). Vui lòng bấm chọn khung giờ bạn mong muốn:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {SHOW_TIMES.map((t) => {
+                  {weekendTimes.map((t) => {
                     const isSelected = selectedTime?.id === t.id;
                     const isMorning = t.tagType === 'morning';
 
@@ -274,11 +274,11 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                             className={`w-11 h-11 rounded-xl border flex items-center justify-center ${
                               isMorning
                                 ? 'bg-amber-50 border-amber-200 text-amber-700'
-                                : 'bg-indigo-50 border-indigo-200 text-indigo-700'
+                                : 'bg-orange-50 border-orange-200 text-orange-700'
                             }`}
                           >
                             <span className="material-symbols-outlined text-2xl">
-                              {isMorning ? 'wb_sunny' : 'nights_stay'}
+                              {isMorning ? 'wb_sunny' : 'routine'}
                             </span>
                           </div>
                           <div>
@@ -294,7 +294,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                                 className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                                   isMorning
                                     ? 'bg-amber-500/10 text-amber-800'
-                                    : 'bg-indigo-500/10 text-indigo-800'
+                                    : 'bg-orange-500/10 text-orange-800'
                                 }`}
                               >
                                 {t.tag}
@@ -316,13 +316,13 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                 </div>
               </div>
             ) : (
-              /* THỨ 6, THỨ 7, CHỦ NHẬT: KHÔNG CÓ BUỔI SÁNG, CHỈ CÓ SUẤT TỐI -> KHỎI CHỌN BUỔI */
+              /* THỨ 4, THỨ 5: CHỈ CÓ 1 SUẤT BUỔI TỐI (19:30 - 21:30) */
               <div className="space-y-3">
                 <div className="p-3 sm:p-4 rounded-2xl bg-indigo-50/70 border border-indigo-200 flex items-center gap-3">
                   <span className="material-symbols-outlined text-indigo-700 text-2xl shrink-0">info</span>
                   <div className="text-xs text-[#454653]">
-                    <span className="font-bold text-[#000f7b]">{selectedDate.dayOfWeek} chỉ biểu diễn duy nhất 1 Suất Tối (19:30 - 21:30)</span>.
-                    <span className="block mt-0.5">Hệ thống đã tự động chọn suất tối và bạn có thể chuyển thẳng sang Bước 2 mà không cần chọn lại buổi.</span>
+                    <span className="font-bold text-[#000f7b]">{selectedDate.dayOfWeek} ({selectedDate.dayMonth}) chỉ biểu diễn duy nhất 1 Suất Tối (19:30 – 21:30)</span>.
+                    <span className="block mt-0.5">Hệ thống đã tự động chọn sẵn suất tối. Bạn có thể bấm tiếp tục để chuyển sang chọn ghế.</span>
                   </div>
                 </div>
 
@@ -333,7 +333,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-lg text-[#000f7b]">19:30 - 21:30</span>
+                        <span className="font-bold text-lg text-[#000f7b]">19:30 – 21:30</span>
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-800">
                           Suất Tối Duy Nhất
                         </span>
@@ -341,7 +341,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                           Đã tự động chọn
                         </span>
                       </div>
-                      <p className="text-xs text-[#454653] mt-0.5">Đón khách từ 18:45 • Còn 18 ghế trống • Khỏi cần chọn buổi</p>
+                      <p className="text-xs text-[#454653] mt-0.5">Đón khách từ 18:45 • Còn 18 ghế trống • 1 Suất Tối</p>
                     </div>
                   </div>
                   <span className="material-symbols-outlined text-2xl text-emerald-600">check_circle</span>
@@ -363,15 +363,15 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                     </strong>
                   </span>
                 </div>
-              ) : selectedDate && isMultiSessionDate(selectedDate) ? (
+              ) : selectedDate && isWeekendMultiSession(selectedDate) ? (
                 <div className="flex items-center gap-2 text-amber-800">
                   <span className="material-symbols-outlined text-sm">schedule</span>
-                  <span>Vui lòng chọn Suất Sáng (09:00 - 11:00) hoặc Suất Tối (19:30 - 21:30) để tiếp tục.</span>
+                  <span>Vui lòng chọn Suất Sáng (09:30 – 11:30) hoặc Suất Chiều (14:30 – 16:30) để tiếp tục.</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-2 text-[#767684]">
                   <span className="material-symbols-outlined text-sm">info</span>
-                  <span>Vui lòng chọn ngày diễn. (Chọn Thứ 6, 7 hoặc Chủ Nhật sẽ tự động chuyển thẳng sang Bước 2).</span>
+                  <span>Vui lòng chọn ngày diễn. (Chọn Thứ 4 hoặc Thứ 5 sẽ có 1 suất tối và có thể chuyển thẳng sang Bước 2).</span>
                 </div>
               )}
             </div>

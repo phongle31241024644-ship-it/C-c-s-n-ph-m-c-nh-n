@@ -19,7 +19,7 @@ export interface ShowTime {
   id: string;
   timeRange: string;
   tag: string;
-  tagType: 'morning' | 'evening';
+  tagType: 'morning' | 'afternoon' | 'evening';
   notes: string;
 }
 

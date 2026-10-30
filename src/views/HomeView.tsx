@@ -166,7 +166,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
               </div>
               <div className="min-w-0">
                 <span className="text-[10px] font-bold text-[#767684] uppercase tracking-wider block">THỜI GIAN</span>
-                <p className="text-xs font-bold text-[#1b1b22] truncate">09/2027 – 11/2027</p>
+                <p className="text-xs font-bold text-[#1b1b22] truncate">10/2027 – 11/2027</p>
                 <p className="text-[10px] text-[#454653]">Khởi chiếu định kỳ</p>
               </div>
             </div>
@@ -337,18 +337,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
                 <span className="text-xs font-extrabold text-[#1d2b96] uppercase tracking-wider">
                   THỨ TƯ &amp; THỨ NĂM
                 </span>
-                <span className="text-[10px] font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-full">
-                  2 Suất / ngày
+                <span className="text-[10px] font-bold text-indigo-800 bg-indigo-100/80 px-2 py-0.5 rounded-full">
+                  1 Suất Tối / ngày
                 </span>
               </div>
               <div className="space-y-2 text-xs">
-                <div className="flex items-center justify-between p-2 rounded-xl bg-amber-50/60 border border-amber-200/60">
-                  <span className="text-[#454653] font-medium">Suất Sáng</span>
-                  <span className="font-bold text-[#1b1b22]">09:00 – 11:00</span>
-                </div>
-                <div className="flex items-center justify-between p-2 rounded-xl bg-blue-50/60 border border-blue-200/60">
+                <div className="flex items-center justify-between p-2 rounded-xl bg-indigo-50/60 border border-indigo-200/60">
                   <span className="text-[#454653] font-medium">Suất Tối</span>
                   <span className="font-bold text-[#1b1b22]">19:30 – 21:30</span>
+                </div>
+                <div className="p-2 text-[11px] text-[#767684] italic">
+                  * Đón khách từ 18:45 • Khán phòng vòm 360° Phú Thọ
                 </div>
               </div>
             </div>
@@ -359,17 +358,18 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
                 <span className="text-xs font-extrabold text-[#1d2b96] uppercase tracking-wider">
                   THỨ SÁU – CHỦ NHẬT
                 </span>
-                <span className="text-[10px] font-bold text-rose-800 bg-rose-100/80 px-2 py-0.5 rounded-full">
-                  1 Suất / ngày
+                <span className="text-[10px] font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-full">
+                  2 Suất / ngày
                 </span>
               </div>
               <div className="space-y-2 text-xs">
-                <div className="flex items-center justify-between p-2 rounded-xl bg-rose-50/60 border border-rose-200/60">
-                  <span className="text-[#454653] font-medium">Suất Tối Cuối Tuần</span>
-                  <span className="font-bold text-[#1b1b22]">19:30 – 21:30</span>
+                <div className="flex items-center justify-between p-2 rounded-xl bg-amber-50/60 border border-amber-200/60">
+                  <span className="text-[#454653] font-medium">Suất Sáng</span>
+                  <span className="font-bold text-[#1b1b22]">09:30 – 11:30</span>
                 </div>
-                <div className="p-2 text-[11px] text-[#767684] italic">
-                  * Khuyến khích đặt sớm do lượng vé cuối tuần giới hạn.
+                <div className="flex items-center justify-between p-2 rounded-xl bg-orange-50/60 border border-orange-200/60">
+                  <span className="text-[#454653] font-medium">Suất Chiều</span>
+                  <span className="font-bold text-[#1b1b22]">14:30 – 16:30</span>
                 </div>
               </div>
             </div>

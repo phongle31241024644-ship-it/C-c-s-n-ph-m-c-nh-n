@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MERCH_PRODUCTS } from '../data/mockData';
+import { MERCH_PRODUCTS, MERCH_PROJECTION_DATA, TOTAL_MERCH_PROJECTION } from '../data/mockData';
 import { MerchProduct, ViewMode } from '../types';
 
 interface MerchandiseViewProps {
@@ -245,10 +245,10 @@ export const MerchandiseView: React.FC<MerchandiseViewProps> = ({
                         <>
                           <div className="flex flex-col">
                             <span className="text-[10px] uppercase tracking-wider text-[#454653] font-bold">
-                              ĐỒNG PHỤC EKIP SẢN XUẤT
+                              {product.category === 'prints' ? 'ẤN PHẨM BAN TỔ CHỨC' : 'ĐỒNG PHỤC BAN TỔ CHỨC'}
                             </span>
                             <span className="text-xs text-[#7d5700] font-medium">
-                              Dành riêng cho BTC &amp; Hậu đài
+                              Dành riêng cho BTC
                             </span>
                           </div>
                           <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#e3e1eb] text-[#1b1b22] text-[11px] font-semibold border border-white/60 shadow-sm">
@@ -328,17 +328,17 @@ export const MerchandiseView: React.FC<MerchandiseViewProps> = ({
                   Gói Sưu Tầm Trọn Vẹn "Hải Trình BOATS"
                 </h2>
                 <p className="text-sm sm:text-base text-[#e3e1eb] max-w-xl leading-relaxed">
-                  Bao gồm: 01 Áo Thun Khán Giả Đặc Biệt + 01 Túi Tote Canvas + 01 Vòng Tay Chuỗi Đá Xanh + 01 Vé Cứng Mỹ Thuật &amp; Postcard. Tặng kèm Hộp Kỷ Niệm sang trọng.
+                  Bao gồm trọn bộ 4 món: 01 Áo T-shirt BOATS (300.000đ) + 01 Túi Tote Canvas (100.000đ) + 01 Vòng Tay Hạt (120.000đ) + 01 Postcard Set (50.000đ). Tặng kèm Túi Giấy Quà Tặng Paper Bag sang trọng.
                 </p>
               </div>
 
               <div className="lg:col-span-4 flex flex-col items-start lg:items-end space-y-4">
                 <div className="text-left lg:text-right">
                   <span className="text-sm text-white/70 line-through block">
-                    1.370.000 VNĐ
+                    570.000 VNĐ
                   </span>
                   <span className="text-2xl sm:text-3xl font-black text-[#fdc662]">
-                    1.190.000 VNĐ
+                    490.000 VNĐ
                   </span>
                 </div>
                 <button
@@ -347,10 +347,80 @@ export const MerchandiseView: React.FC<MerchandiseViewProps> = ({
                   type="button"
                 >
                   <span className="material-symbols-outlined text-xl">stars</span>
-                  <span>Đặt Trọn Bộ Combo</span>
+                  <span>Đặt Trọn Bộ Combo (490k)</span>
                 </button>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* 6. MERCHANDISE DỰ KIẾN (BẢNG DỰ TOÁN & GIÁ BÁN CHÍNH THỨC) */}
+        <section className="reveal-on-scroll glass-panel p-6 sm:p-9 rounded-3xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#c6c5d5]/40 pb-5">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#1d2b96]">
+                KẾ HOẠCH ẤN PHẨM &amp; PHÁT HÀNH
+              </span>
+              <h2
+                className="text-2xl sm:text-3xl font-extrabold text-[#1b1b22] tracking-tight mt-1"
+                style={{ fontFamily: '"Plus Jakarta Sans", "Be Vietnam Pro", sans-serif' }}
+              >
+                6. MERCHANDISE DỰ KIẾN
+              </h2>
+              <p className="text-xs sm:text-sm text-[#454653] mt-1">
+                Bảng số lượng, đơn giá niêm yết và dự kiến tổng doanh thu phát hành cho mùa diễn BOATS 2027.
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold shrink-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Tổng doanh thu: {TOTAL_MERCH_PROJECTION.totalGrossRevenueFormatted}
+            </div>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-[#c6c5d5]/50 bg-white/70 shadow-xs">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="bg-[#f0eef8] border-b border-[#c6c5d5]/50 text-[#1b1b22] font-extrabold">
+                  <th className="py-3.5 px-4 sm:px-6">Loại merchandise</th>
+                  <th className="py-3.5 px-4 text-center">Số lượng dự kiến</th>
+                  <th className="py-3.5 px-4 text-right">Giá bán</th>
+                  <th className="py-3.5 px-4 sm:px-6 text-right">Gross Revenue dự kiến</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#c6c5d5]/30">
+                {MERCH_PROJECTION_DATA.map((item, idx) => (
+                  <tr key={idx} className="hover:bg-white/80 transition-colors">
+                    <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#1d2b96]">
+                      {item.name}
+                    </td>
+                    <td className="py-3.5 px-4 text-center text-[#454653] font-medium">
+                      {item.quantity}
+                    </td>
+                    <td className="py-3.5 px-4 text-right font-bold text-[#1b1b22]">
+                      {item.priceFormatted}
+                    </td>
+                    <td className="py-3.5 px-4 sm:px-6 text-right font-semibold text-emerald-700">
+                      {item.grossRevenueFormatted}
+                    </td>
+                  </tr>
+                ))}
+                {/* Total Row */}
+                <tr className="bg-[#1d2b96]/5 font-black text-[#000f7b] border-t-2 border-[#1d2b96]/30">
+                  <td className="py-4 px-4 sm:px-6 uppercase tracking-wider text-xs sm:text-sm">
+                    Tổng
+                  </td>
+                  <td className="py-4 px-4 text-center text-xs sm:text-sm text-[#1d2b96]">
+                    {TOTAL_MERCH_PROJECTION.totalQuantity} sản phẩm
+                  </td>
+                  <td className="py-4 px-4 text-right text-xs sm:text-sm text-[#454653]">
+                    —
+                  </td>
+                  <td className="py-4 px-4 sm:px-6 text-right text-base sm:text-lg font-black text-[#1d2b96]">
+                    {TOTAL_MERCH_PROJECTION.totalGrossRevenueFormatted}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

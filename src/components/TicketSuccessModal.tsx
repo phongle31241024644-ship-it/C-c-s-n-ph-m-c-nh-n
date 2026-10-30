@@ -26,7 +26,7 @@ export const TicketSuccessModal: React.FC<TicketSuccessModalProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const dateStr = selectedDate?.dateStr || 'Thứ Năm, 23/10/2027';
+  const dateStr = selectedDate?.dateStr || 'Thứ Sáu, 22/10/2027';
   const timeRange = selectedTime?.timeRange || '19:30 - 21:30';
 
   const merchItems = cartItems.filter((i) => i.type === 'merch');
