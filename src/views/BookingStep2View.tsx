@@ -251,7 +251,7 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
                         Còn {vipAvailable} ghế
                       </span>
                     </div>
-                    <span className="text-[9px] text-[#454653] mt-1">Gần sân khấu nhất • Góc nhìn trọn vẹn</span>
+                    <span className="text-[9px] text-[#454653] mt-1">Gần sân khấu / vị trí trung tâm tốt nhất</span>
                   </button>
 
                   {/* Premium Tab */}
@@ -275,7 +275,7 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
                         Còn {premiumAvailable} ghế
                       </span>
                     </div>
-                    <span className="text-[9px] text-[#454653] mt-1">Khán đài tầm trung • Âm thanh vòm</span>
+                    <span className="text-[9px] text-[#454653] mt-1">Khu trung tâm, góc nhìn tốt</span>
                   </button>
 
                   {/* Standard Tab */}
@@ -299,7 +299,7 @@ export const BookingStep2View: React.FC<BookingStep2ViewProps> = ({
                         Còn {standardAvailable} ghế
                       </span>
                     </div>
-                    <span className="text-[9px] text-[#454653] mt-1">Tầng cao toàn cảnh • Hiệu ứng hologram</span>
+                    <span className="text-[9px] text-[#454653] mt-1">Hai bên và phía sau</span>
                   </button>
 
                   {/* 360 All Tab */}

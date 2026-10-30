@@ -430,26 +430,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
 
               {/* Description */}
               <p className="text-xs text-[#454653] min-h-[38px] leading-relaxed">
-                <strong className="text-[#1b1b22]">Vị trí:</strong> Hai bên và phía sau khán phòng 360°, bao quát trọn vẹn cảnh diễn.
+                <strong className="text-[#1b1b22]">Vị trí:</strong> Hai bên và phía sau
               </p>
 
-              {/* Benefits (4 items) */}
+              {/* Benefits (exact from table) */}
               <ul className="space-y-2 pt-3 border-t border-[#c6c5d5]/30 text-xs text-[#454653]">
                 <li className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-base text-[#14b8a6]">check_circle</span>
-                  <span>Ghế ngồi Standard bao quát toàn cảnh 360°</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-[#14b8a6]">check_circle</span>
-                  <span>Hệ thống âm thanh vòm sống động</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-[#14b8a6]">check_circle</span>
-                  <span>Khán phòng điều hòa chuẩn quốc tế</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-[#14b8a6]">check_circle</span>
-                  <span>Hỗ trợ chuyển đổi suất diễn trước 48h</span>
+                  <span>Ghế Standard</span>
                 </li>
               </ul>
             </div>
@@ -494,26 +482,18 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
 
               {/* Description */}
               <p className="text-xs text-[#454653] min-h-[38px] leading-relaxed">
-                <strong className="text-[#1b1b22]">Vị trí:</strong> Khu trung tâm, góc nhìn tốt, hòa mình trọn vẹn vào không gian âm thanh vòm.
+                <strong className="text-[#1b1b22]">Vị trí:</strong> Khu trung tâm, góc nhìn tốt
               </p>
 
-              {/* Benefits (4 items) */}
+              {/* Benefits (exact from table) */}
               <ul className="space-y-2 pt-3 border-t border-[#c6c5d5]/30 text-xs text-[#454653]">
                 <li className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-base text-[#8b5cf6]">check_circle</span>
-                  <span>Ghế ngồi Premium khu vực trung tâm</span>
+                  <span>Ghế Premium</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-base text-[#8b5cf6]">check_circle</span>
-                  <span>Tầm nhìn lý tưởng &amp; âm thanh vòm tối ưu</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-[#8b5cf6]">check_circle</span>
-                  <span>Lối vào ưu tiên (Priority check-in)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-[#8b5cf6]">check_circle</span>
-                  <span>Nước suối &amp; khăn lạnh đón tiếp tại sảnh</span>
+                  <span>Priority check-in</span>
                 </li>
               </ul>
             </div>
@@ -558,26 +538,26 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectTier }) 
 
               {/* Description */}
               <p className="text-xs text-[#454653] min-h-[38px] leading-relaxed">
-                <strong className="text-[#1b1b22]">Vị trí:</strong> Gần sân khấu / vị trí trung tâm tốt nhất với tầm nhìn trực diện hoàn hảo.
+                <strong className="text-[#1b1b22]">Vị trí:</strong> Gần sân khấu / vị trí trung tâm tốt nhất
               </p>
 
-              {/* Benefits (4 items) */}
+              {/* Benefits (exact from table) */}
               <ul className="space-y-2 pt-3 border-t border-[#c6c5d5]/30 text-xs text-[#454653]">
                 <li className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-base text-[#c0266f]">check_circle</span>
-                  <span>Ghế VIP hàng đầu trực diện sân khấu</span>
+                  <span>Ghế VIP</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-base text-[#c0266f]">check_circle</span>
-                  <span>Lối vào ưu tiên (Priority check-in)</span>
+                  <span>Priority check-in</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-base text-[#c0266f]">check_circle</span>
-                  <span>01 Official Playbill chính thức</span>
+                  <span>01 Official Playbill</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-base text-[#c0266f]">check_circle</span>
-                  <span>01 Limited Bracelet (Vòng tay giới hạn)</span>
+                  <span>01 Limited Bracelet</span>
                 </li>
               </ul>
             </div>
