@@ -181,7 +181,7 @@ export const MERCH_PRODUCTS: MerchProduct[] = [
     price: 120000,
     priceFormatted: '120.000 VNĐ',
     description: 'Hạt đá phong cách đại dương xanh thẫm kết hợp charm khắc laser logo BOATS 2027 độc bản.',
-    badge: 'GIỚI HẠN · SỐ LƯỢNG 300',
+    badge: 'SỐ LƯỢNG 300',
     badgeColor: 'bg-[#ffdeaa] text-[#271900]',
     frontImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD61djpB-2vBzqo5DQm6mCTOC9A29pF6u-lHxjmFwSCQzpN_pxs37CMwRuPAZdAHRMrgDmBOx9muF6EO0SW7xtuIl27NstOk0Z8en2SAt8i36sySzsUxBK4Pghl70Yi2HwYLvUVk8b7INzKtM9_TCamCQWA3EtyLjqQdtfMezAGxyxZfTQbuxkMnd8zaR_oGNm33CLKgrELbyuK7tQpyKHimVg7nTvO2mM5seqSGKZ1dSvP9bySsNAIms__1SW-KVmutg',
     specialActionType: 'add_to_cart',

@@ -144,26 +144,71 @@
   }
 }
 
-.luxury-sheen-title {
+.luxury-sheen-title,
+.blue-luxury-sheen {
   background: linear-gradient(
     115deg,
-    #1d2b96 0%,
-    #1d2b96 28%,
-    #3b49df 38%,
-    #93c5fd 48%,
-    #ffffff 50%,
-    #93c5fd 52%,
-    #3b49df 62%,
-    #1d2b96 72%,
-    #1d2b96 100%
+    #000f7b 0%,
+    #000f7b 26%,
+    #1d2b96 36%,
+    #3b82f6 46%,
+    #93c5fd 50%,
+    #3b82f6 54%,
+    #1d2b96 64%,
+    #000f7b 74%,
+    #000f7b 100%
   );
-  background-size: 280% 100%;
+  background-size: 260% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: luxury-text-sheen 6s ease-in-out infinite;
+  animation: luxury-text-sheen 4.5s ease-in-out infinite;
   display: inline-block;
-  filter: drop-shadow(0 4px 18px rgba(29, 43, 150, 0.15));
+  padding: 0.15em 0.06em 0.2em 0.06em;
+  line-height: 1.35;
+  overflow: visible;
+  filter: drop-shadow(0 2px 8px rgba(0, 15, 123, 0.15));
+}
+
+/* Lóe sáng vàng tươi rực rỡ, sang trọng */
+.gold-luxury-sheen {
+  background: linear-gradient(
+    115deg,
+    #f59e0b 0%,
+    #facc15 25%,
+    #ffffff 48%,
+    #fef08a 52%,
+    #fbbf24 68%,
+    #f59e0b 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: luxury-text-sheen 4s ease-in-out infinite;
+  display: inline-block;
+  filter: drop-shadow(0 1px 4px rgba(245, 158, 11, 0.22));
+}
+
+/* Lóe sáng trắng thuần khiết & ánh bạc ngọc bích */
+.white-luxury-sheen {
+  background: linear-gradient(
+    115deg,
+    #ffffff 0%,
+    #ffffff 28%,
+    #fed7aa 42%,
+    #ffffff 50%,
+    #bae6fd 58%,
+    #ffffff 72%,
+    #ffffff 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: luxury-text-sheen 4.5s ease-in-out infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.7));
 }
 
 /* Hiệu ứng quét mặt khung tinh tế & êm dịu định kỳ */

@@ -239,8 +239,8 @@ export default function App() {
           type: 'merch',
           title: 'Gói Sưu Tầm Trọn Vẹn "Hải Trình BOATS"',
           subtitle: 'Combo 4 Món: Áo T-shirt + Túi Tote + Vòng Tay Hạt + Postcard Set',
-          price: 490000,
-          priceFormatted: '490.000 VNĐ',
+          price: 570000,
+          priceFormatted: '570.000 VNĐ',
           quantity: 1,
           image:
             'https://lh3.googleusercontent.com/aida-public/AB6AXuDpK4FWTcVBluvKbUSKo5XivYTQsZTJfQO6Jh8EybTi4UX3z5qDBqtq5d5Old41phQk0TmOZVzDCIahki0gmkR5HhF-kIR_zxyexRWPi2yry11zBcibiYPyagrVkXTDZboge-D7bk2DuYtcunVParhx9Sb9hAg1tO3Bg9qGQrsJaZNApTmy3IbJNnhjmOkWjFnTiRrsPk-HTr-hpbjuyti0wvE4LM4m0lw435P7X6pUHRUVPN-dvihiA0x7uJTcR-lITw',

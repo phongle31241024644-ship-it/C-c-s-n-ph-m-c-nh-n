@@ -62,10 +62,10 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
             Rạp Xiếc &amp; biểu diễn đa năng Phú Thọ
           </div>
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl text-[#000f7b] font-extrabold tracking-tight uppercase"
-            style={{ fontFamily: '"Plus Jakarta Sans", "Be Vietnam Pro", sans-serif', letterSpacing: '-0.015em' }}
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight uppercase blue-luxury-sheen leading-normal py-1"
+            style={{ fontFamily: '"Plus Jakarta Sans", "Be Vietnam Pro", sans-serif', letterSpacing: '-0.01em' }}
           >
-            ĐẶT VÉ &amp; SƠ ĐỒ KHÁN PHÒNG 360°
+            {'ĐẶT VÉ & SƠ ĐỒ KHÁN PHÒNG 360°'}
           </h1>
           <p className="mt-2.5 text-[#454653] text-sm sm:text-base">
             Trải nghiệm âm thanh vòm chuẩn điện ảnh và công nghệ trình chiếu holographic biển sóng bao trọn từng góc nhìn.

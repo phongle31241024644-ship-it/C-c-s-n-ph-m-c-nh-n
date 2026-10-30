@@ -169,8 +169,8 @@ export const BookingStep3View: React.FC<BookingStep3ViewProps> = ({
           </div>
 
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl text-[#000f7b] font-extrabold tracking-tight uppercase"
-            style={{ fontFamily: '"Plus Jakarta Sans", "Be Vietnam Pro", sans-serif', letterSpacing: '-0.015em' }}
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight uppercase blue-luxury-sheen leading-normal py-1"
+            style={{ fontFamily: '"Plus Jakarta Sans", "Be Vietnam Pro", sans-serif', letterSpacing: '-0.01em' }}
           >
             {hasMerch && shouldShowTickets
               ? 'THANH TOÁN VÉ & VẬT PHẨM LƯU NIỆM'
