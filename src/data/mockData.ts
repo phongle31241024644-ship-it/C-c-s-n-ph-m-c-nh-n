@@ -27,7 +27,7 @@ export const SHOW_DATES: ShowDate[] = [
     dayOfWeek: 'Thứ Sáu',
     dayMonth: '22 Th10',
     dateStr: 'Thứ Sáu, 22/10/2027',
-    badge: 'Sáng & Chiều',
+    badge: 'Sáng & Tối',
     badgeColor: 'text-amber-700 bg-amber-50 border-amber-200/60',
   },
   {
@@ -35,7 +35,7 @@ export const SHOW_DATES: ShowDate[] = [
     dayOfWeek: 'Thứ Bảy',
     dayMonth: '23 Th10',
     dateStr: 'Thứ Bảy, 23/10/2027',
-    badge: 'Sáng & Chiều • Hot',
+    badge: 'Sáng & Tối',
     badgeColor: 'text-rose-700 bg-rose-50 border-rose-200/60',
   },
   {
@@ -43,7 +43,7 @@ export const SHOW_DATES: ShowDate[] = [
     dayOfWeek: 'Chủ Nhật',
     dayMonth: '24 Th10',
     dateStr: 'Chủ Nhật, 24/10/2027',
-    badge: 'Sáng & Chiều',
+    badge: 'Sáng & Tối',
     badgeColor: 'text-amber-700 bg-amber-50 border-amber-200/60',
   },
 ];
@@ -54,21 +54,14 @@ export const SHOW_TIMES: ShowTime[] = [
     timeRange: '09:30 - 11:30',
     tag: 'Suất Sáng',
     tagType: 'morning',
-    notes: 'Đón khách từ 08:45 • Còn 42 ghế trống',
-  },
-  {
-    id: 't-afternoon',
-    timeRange: '14:30 - 16:30',
-    tag: 'Suất Chiều',
-    tagType: 'afternoon',
-    notes: 'Đón khách từ 13:45 • Còn 28 ghế trống',
+    notes: 'Còn 42 ghế trống',
   },
   {
     id: 't-evening',
     timeRange: '19:30 - 21:30',
     tag: 'Suất Tối',
     tagType: 'evening',
-    notes: 'Đón khách từ 18:45 • Còn 18 ghế trống',
+    notes: 'Còn 18 ghế trống',
   },
 ];
 
