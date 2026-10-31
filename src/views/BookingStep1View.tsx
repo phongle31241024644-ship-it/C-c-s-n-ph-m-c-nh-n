@@ -245,7 +245,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                   Hãy bấm chọn 1 ngày diễn ở trên để hiển thị các khung giờ có sẵn
                 </p>
                 <p className="text-xs text-[#767684]">
-                  Thứ 4, 5: 1 suất tối (19:30 – 21:30) • Thứ 6, 7, CN: Có 2 suất Sáng (09:30) &amp; Chiều (14:30)
+                  Thứ 4, 5: 1 suất tối (19:30 – 21:30) • Thứ 6, 7, CN: Có 2 suất Sáng (09:30) &amp; Chiều (19:30)
                 </p>
               </div>
             ) : isWeekendMultiSession(selectedDate) ? (
@@ -366,7 +366,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
               ) : selectedDate && isWeekendMultiSession(selectedDate) ? (
                 <div className="flex items-center gap-2 text-amber-800">
                   <span className="material-symbols-outlined text-sm">schedule</span>
-                  <span>Vui lòng chọn Suất Sáng (09:30 – 11:30) hoặc Suất Chiều (14:30 – 16:30) để tiếp tục.</span>
+                  <span>Vui lòng chọn Suất Sáng (09:30 – 11:30) hoặc Suất Chiều (19:30 – 21:30) để tiếp tục.</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-2 text-[#767684]">
