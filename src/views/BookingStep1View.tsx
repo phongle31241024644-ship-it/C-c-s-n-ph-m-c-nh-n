@@ -24,8 +24,8 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
   const isWeekendMultiSession = (d: ShowDate | null) => d?.id === 'd3' || d?.id === 'd4' || d?.id === 'd5';
   const isReady = selectedDate !== null && selectedTime !== null;
 
-  const eveningTime = SHOW_TIMES.find((t) => t.tagType === 'evening') || SHOW_TIMES[2];
-  const weekendTimes = SHOW_TIMES.filter((t) => t.tagType === 'morning' || t.tagType === 'evening');
+  const eveningTime = SHOW_TIMES.find((t) => t.id === 't-evening') || SHOW_TIMES[1];
+  const weekendTimes = SHOW_TIMES;
 
   const handleDateClick = (d: ShowDate) => {
     if (isEveningOnlyDate(d)) {
