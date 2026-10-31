@@ -201,7 +201,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                     >
                       {d.dayMonth}
                     </span>
-                    <span className={`text-[11px] font-medium px-2 py-0.5 rounded-full border mt-1 ${d.badgeColor}`}>
+                    <span className="text-[11px] font-medium px-2 py-0.5 rounded-full border mt-1 bg-amber-50 text-amber-700 border-amber-200">
                       {d.badge}
                     </span>
                     {isDirectStep2 && (
