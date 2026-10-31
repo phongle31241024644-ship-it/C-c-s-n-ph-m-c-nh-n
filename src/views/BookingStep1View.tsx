@@ -19,13 +19,13 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
   onProceedToStep2,
   onAutoProceedToStep2,
 }) => {
-  // Thứ 4 (d1) và Thứ 5 (d2) có 1 suất buổi tối; Thứ 6 (d3), Thứ 7 (d4), Chủ Nhật (d5) có suất sáng & chiều
+  // Thứ 4 (d1) và Thứ 5 (d2) có 1 suất buổi tối; Thứ 6 (d3), Thứ 7 (d4), Chủ Nhật (d5) có suất sáng & tối
   const isEveningOnlyDate = (d: ShowDate | null) => d?.id === 'd1' || d?.id === 'd2';
   const isWeekendMultiSession = (d: ShowDate | null) => d?.id === 'd3' || d?.id === 'd4' || d?.id === 'd5';
   const isReady = selectedDate !== null && selectedTime !== null;
 
   const eveningTime = SHOW_TIMES.find((t) => t.tagType === 'evening') || SHOW_TIMES[2];
-  const weekendTimes = SHOW_TIMES.filter((t) => t.tagType === 'morning' || t.tagType === 'afternoon');
+  const weekendTimes = SHOW_TIMES.filter((t) => t.tagType === 'morning' || t.tagType === 'evening');
 
   const handleDateClick = (d: ShowDate) => {
     if (isEveningOnlyDate(d)) {
@@ -39,7 +39,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
         onProceedToStep2();
       }
     } else {
-      // Thứ 6, Thứ 7, Chủ Nhật: Có 2 suất (Sáng & Chiều) -> để người dùng tự chọn
+      // Thứ 6, Thứ 7, Chủ Nhật: Có 2 suất (Sáng & Tối) -> để người dùng tự chọn
       onSelectDate(d);
       onSelectTime(null);
     }
@@ -249,7 +249,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                 </p>
               </div>
             ) : isWeekendMultiSession(selectedDate) ? (
-              /* THỨ 6, THỨ 7, CHỦ NHẬT: CÓ 2 BUỔI (SÁNG & CHIỀU) -> NGƯỜI DÙNG TỰ CHỌN */
+              /* THỨ 6, THỨ 7, CHỦ NHẬT: CÓ 2 BUỔI (SÁNG & TỐI) -> NGƯỜI DÙNG TỰ CHỌN */
               <div className="space-y-2">
                 <p className="text-xs text-[#454653]">
                   <strong className="text-[#000f7b]">{selectedDate.dayOfWeek} ({selectedDate.dayMonth})</strong> có 2 suất diễn (Sáng &amp; Tối). Vui lòng bấm chọn khung giờ bạn mong muốn:
@@ -341,7 +341,7 @@ export const BookingStep1View: React.FC<BookingStep1ViewProps> = ({
                           Đã tự động chọn
                         </span>
                       </div>
-                      <p className="text-xs text-[#454653] mt-0.5">Đón khách từ 18:45 • Còn 18 ghế trống • 1 Suất Tối</p>
+                      <p className="text-xs text-[#454653] mt-0.5">Còn 18 ghế trống • 1 Suất Tối</p>
                     </div>
                   </div>
                   <span className="material-symbols-outlined text-2xl text-emerald-600">check_circle</span>
